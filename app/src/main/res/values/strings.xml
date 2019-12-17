@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Navigation Evaluation</string>
+    <string name="goto_list">リストビューに遷移</string>
+    <string name="list_view">リストビュー</string>
+</resources>
