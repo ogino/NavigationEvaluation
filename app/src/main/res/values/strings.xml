@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">Navigation Evaluation</string>
+    <string name="action_settings">設定</string>
     <string name="goto_list">リストビューに遷移</string>
     <string name="list_view">リストビュー</string>
+    <string name="preference_view">設定</string>
+    <string name="notify">ダミー</string>
+    <string name="notify_description">ダミーの設定項目です。動きません。</string>
+    <string name="send_feedback">ダミー</string>
+    <string name="feedback_description">ダミーの設定項目です。動きません。</string>
+    <string name="debug">ダミー</string>
+    <string name="debug_description">ダミーの設定項目です。動きません</string>
+    <string name="format">ダミー</string>
+    <string name="format_description">ダミーの設定項目です。動きません</string>
+    <string name="format_dialog">ダミーの選択です</string>
+    <string name="preset_name">ダミー</string>
+    <string name="preset_description">ダミーの設定項目です。動きません</string>
+    <string name="preset_dialog">ダミーの選択です</string>
 </resources>

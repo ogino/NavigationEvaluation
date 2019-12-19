@@ -14,7 +14,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import io.miyabi.navigate.R
-import java.math.BigDecimal
 import kotlin.random.Random
 
 class ListFragment : Fragment() {

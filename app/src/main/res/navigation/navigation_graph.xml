@@ -13,10 +13,17 @@
         <action
             android:id="@+id/action_mainFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_preferenceFragment"
+            app:destination="@id/preferenceFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="io.miyabi.navigate.ui.list.ListFragment"
         android:label="@string/list_view"
         tools:layout="@layout/list_fragment" />
+    <fragment
+        android:id="@+id/preferenceFragment"
+        android:name="io.miyabi.navigate.ui.preference.PreferenceFragment"
+        android:label="@string/preference_view" />
 </navigation>

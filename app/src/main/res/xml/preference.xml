@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="@string/notify"
+        app:summary="@string/notify_description"
+        />
+
+    <Preference
+        app:key="feedback"
+        app:title="@string/send_feedback"
+        app:summary="@string/feedback_description"/>
+
+    <CheckBoxPreference
+        app:key="debug"
+        app:title="@string/debug"
+        app:summary="@string/debug_description"/>
+
+    <ListPreference
+        app:key="format"
+        app:title="@string/format"
+        app:summary="@string/format_description"
+        app:entries="@array/format_names"
+        app:entryValues="@array/format_values"
+        app:dialogTitle="@string/format_dialog"/>
+
+    <EditTextPreference
+        app:key="preset_name"
+        app:title="@string/preset_name"
+        app:summary="@string/preset_description"
+        app:dialogTitle="@string/preset_dialog" />
+
+</androidx.preference.PreferenceScreen>
