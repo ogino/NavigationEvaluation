@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_preferenceFragment"
             app:destination="@id/preferenceFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -26,4 +29,9 @@
         android:id="@+id/preferenceFragment"
         android:name="io.miyabi.navigate.ui.preference.PreferenceFragment"
         android:label="@string/preference_view" />
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="io.miyabi.navigate.ui.image.ImageFragment"
+        android:label="@string/image_view"
+        tools:layout="@layout/image_frament" />
 </navigation>

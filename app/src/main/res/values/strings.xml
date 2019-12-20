@@ -16,4 +16,8 @@
     <string name="preset_name">ダミー</string>
     <string name="preset_description">ダミーの設定項目です。動きません</string>
     <string name="preset_dialog">ダミーの選択です</string>
+    <string name="goto_image">画像ビューに遷移</string>
+    <string name="image_view">画像ビュー</string>
+    <string name="before_image">Before Image</string>
+    <string name="after_image">After Image</string>
 </resources>

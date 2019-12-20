@@ -4,4 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/image"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    tools:context=".ui.image.ImageFragment">
+
+    <io.miyabi.navigate.ui.image.CompareSlider
+        android:id="@+id/compare_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
