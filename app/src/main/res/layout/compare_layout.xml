@@ -12,6 +12,14 @@
         android:contentDescription="@string/before_image"
         />
 
+    <TextView
+        android:id="@+id/before_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/before_image"
+        android:textColor="@color/white"
+        android:layout_gravity="end"/>
+
     <ImageView
         android:id="@+id/after_image"
         android:layout_width="match_parent"
@@ -19,6 +27,15 @@
         android:scaleType="centerCrop"
         android:contentDescription="@string/after_image"
         />
+
+    <TextView
+        android:id="@+id/after_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/after_image"
+        android:textColor="@color/white"
+        android:layout_gravity="start"
+        android:visibility="visible" />
 
     <RelativeLayout
         android:layout_width="match_parent"

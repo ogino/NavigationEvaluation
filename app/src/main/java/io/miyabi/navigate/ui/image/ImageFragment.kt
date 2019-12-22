@@ -1,9 +1,7 @@
 package io.miyabi.navigate.ui.image
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import io.miyabi.navigate.R
 
@@ -15,10 +13,14 @@ class ImageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.image_frament, container, false)
-        val imgUrl1 = "https://cdn.hasselblad.com/samples/x1d-II-50c/x1d-II-sample-01.jpg"
-        val imgUrl2 = "https://cdn.hasselblad.com/samples/x1d-II-50c/x1d-II-sample-02.jpg"
-        val slider = view.findViewById<CompareSlider>(R.id.compare_slider)
-        slider.putBefore(imgUrl1).putAfter(imgUrl2)
+        val beforeURL = "https://www.publicdomainpictures.net/pictures/10000/velka/947-1262213425CFHP.jpg"
+        val afterURL = "https://www.publicdomainpictures.net/pictures/80000/velka/sunset-from-sandpatch.jpg"
+        val layout = view.findViewById<CompareLayout>(R.id.compare_layout)
+        layout.putBefore(beforeURL).putAfter(afterURL)
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
     }
 }

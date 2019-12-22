@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Navigation Evaluation</string>
+    <string name="app_name">Androidナビゲーション評価アプリ</string>
     <string name="action_settings">設定</string>
     <string name="goto_list">リストビューに遷移</string>
     <string name="list_view">リストビュー</string>
@@ -18,6 +18,6 @@
     <string name="preset_dialog">ダミーの選択です</string>
     <string name="goto_image">画像ビューに遷移</string>
     <string name="image_view">画像ビュー</string>
-    <string name="before_image">Before Image</string>
-    <string name="after_image">After Image</string>
+    <string name="before_image">変更前の画像</string>
+    <string name="after_image">変更後の画像</string>
 </resources>
