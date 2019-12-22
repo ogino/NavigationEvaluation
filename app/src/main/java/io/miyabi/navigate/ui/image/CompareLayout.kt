@@ -24,12 +24,12 @@ class CompareLayout : RelativeLayout, ClipDrawableTask.AfterImage {
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        val attr = context?.theme?.obtainStyledAttributes(attrs, R.styleable.BeforeAfterSlider,0,0)
+        val attr = context?.theme?.obtainStyledAttributes(attrs, R.styleable.CompareLayout,0,0)
         attr?.let {
             try {
-                putThumb(it.getDrawable(R.styleable.BeforeAfterSlider_slider_thumb))
-                putBefore(it.getDrawable(R.styleable.BeforeAfterSlider_before_image))
-                putAfter(it.getDrawable(R.styleable.BeforeAfterSlider_after_image))
+                putThumb(it.getDrawable(R.styleable.CompareLayout_slider_thumb))
+                putBefore(it.getDrawable(R.styleable.CompareLayout_before_image))
+                putAfter(it.getDrawable(R.styleable.CompareLayout_after_image))
             } finally {
                 it.recycle()
             }

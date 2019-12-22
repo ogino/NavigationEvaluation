@@ -8,7 +8,7 @@ import android.os.Looper
 import android.view.Gravity
 import android.widget.ImageView
 import android.widget.SeekBar
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import io.miyabi.navigate.ui.scaledBitmap
 import java.lang.ref.WeakReference
 
@@ -28,9 +28,9 @@ class ClipDrawableTask<T>(
         }
         try {
             var bitmap =
-                if (params[0] is String) Glide.with(context).asBitmap().load(params[0]).submit().get()
+                if (params[0] is String) Picasso.get().load(params[0].toString()).resize(0, imageHeight()).onlyScaleDown().get()
                 else (params[0] as BitmapDrawable).bitmap
-            bitmap.scaledBitmap()?.let {
+            bitmap?.scaledBitmap()?.let {
                 bitmap = it
             }
             return ClipDrawable(
@@ -47,11 +47,10 @@ class ClipDrawableTask<T>(
     private val progressNum = 5000
 
     override fun onPostExecute(clipDrawable: ClipDrawable?) {
-        val image = imageRef.get()
-        image?.let { im ->
+        imageRef.get()?.let { view ->
             clipDrawable?.let {
                 initSeekBar(it)
-                im.setImageDrawable(it)
+                view.setImageDrawable(it)
                 when (it.level) {
                     0 -> it.level = seekBarRef.get()!!.progress
                     else -> it.level = progressNum
@@ -77,6 +76,15 @@ class ClipDrawableTask<T>(
             }
 
         })
+    }
+
+    private fun imageHeight(): Int {
+        var height = 0
+        imageRef.get()?.let {
+            while (height < 1)
+                height = it.height
+        }
+        return if (0 < height) height else 1
     }
 
     interface AfterImage {

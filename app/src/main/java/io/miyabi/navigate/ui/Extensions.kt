@@ -4,10 +4,10 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 
 fun ImageView.loadImage(url: String?){
-    Glide.with(context).load(url).into(this)
+    Picasso.get().load(url).into(this)
 }
 
 fun ImageView.loadImage(drawable: Drawable?){
