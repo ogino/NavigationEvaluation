@@ -2,6 +2,7 @@ package io.miyabi.navigate.ui.image
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.widget.FrameLayout
@@ -9,7 +10,9 @@ import android.widget.ImageView
 import io.miyabi.navigate.R
 import java.util.logging.Logger
 
-class ImageFrameLayout : FrameLayout, ScaleGestureDetector.OnScaleGestureListener {
+class ImageFrameLayout : FrameLayout, ScaleGestureDetector.OnScaleGestureListener,
+    GestureDetector.OnGestureListener,
+    GestureDetector.OnDoubleTapListener {
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -49,17 +52,20 @@ class ImageFrameLayout : FrameLayout, ScaleGestureDetector.OnScaleGestureListene
     private var prevDy = 0f;
 
     init {
-        val detector = ScaleGestureDetector(context, this)
-        createScaleDetector(detector)
+        val detector = GestureDetector(context, this)
+        detector.setOnDoubleTapListener(this)
+        val scaleDetector = ScaleGestureDetector(context, this)
+        createTouchListener(detector, scaleDetector)
     }
 
-    private fun createScaleDetector(detector: ScaleGestureDetector) {
-        setOnTouchListener { v, event ->
+    private fun createTouchListener(detector: GestureDetector,
+                                    scaleDetector: ScaleGestureDetector) {
+        setOnTouchListener { _, event ->
             proceedMotionEvent(event)
-            detector.onTouchEvent(event)
+            scaleDetector.onTouchEvent(event)
             if (Mode.DRAG == mode && scale >= MIN_ZOOM || Mode.ZOOM == mode)
                 scaleViews()
-            true
+            detector.onTouchEvent(event)
         }
     }
 
@@ -135,4 +141,54 @@ class ImageFrameLayout : FrameLayout, ScaleGestureDetector.OnScaleGestureListene
         }
         return true
     }
+
+    private val TAPPED_ZOOM = 2f
+
+    override fun onDoubleTap(e: MotionEvent?): Boolean {
+        e?.let {
+            if (scale < MAX_ZOOM)
+                scale *= TAPPED_ZOOM
+            else
+                scale = 0f
+            scale = Math.max(MIN_ZOOM, Math.min(scale, MAX_ZOOM))
+            mode = Mode.ZOOM
+            scaleViews()
+            return true
+        }
+        return false
+    }
+
+    override fun onDoubleTapEvent(e: MotionEvent?): Boolean {
+        return false
+    }
+
+    override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+        return true
+    }
+
+    override fun onShowPress(e: MotionEvent?) {
+
+    }
+
+    override fun onSingleTapUp(e: MotionEvent?): Boolean {
+        return true
+    }
+
+    override fun onDown(e: MotionEvent?): Boolean {
+        return true
+    }
+
+    override fun onFling(e1: MotionEvent?, e2: MotionEvent?,
+                         velocityX: Float, velocityY: Float): Boolean {
+        return false
+    }
+
+    override fun onScroll(e1: MotionEvent?, e2: MotionEvent?,
+                          distanceX: Float, distanceY: Float): Boolean {
+        return false
+    }
+
+    override fun onLongPress(e: MotionEvent?) {
+    }
+
 }
